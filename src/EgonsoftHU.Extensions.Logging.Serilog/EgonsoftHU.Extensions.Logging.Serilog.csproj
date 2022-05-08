@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageId>EgonsoftHU.Extensions.Logging.Serilog</PackageId>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <VersionSuffix></VersionSuffix>
+    <Authors>Gabor Csizmadia</Authors>
+    <Owners>Egonsoft.HU</Owners>
+    <Title>Egonsoft.HU Serilog Logging Extensions</Title>
+    <Description>PropertyBagEnricher and C# extension methods for Serilog.ILogger</Description>
+    <Summary>PropertyBagEnricher and C# extension methods for Serilog.ILogger</Summary>
+    <Copyright>Copyright © 2022 Gabor Csizmadia</Copyright>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/gcsizmadia/EgonsoftHU.Extensions.Logging.Serilog</PackageProjectUrl>
+    <!--
+    <PackageIcon></PackageIcon>
+    <PackageIconUrl></PackageIconUrl>
+    <PackageReadmeFile></PackageReadmeFile>
+    -->
+    <PackageTags>$(PackageTags) extensions extension logging serilog ilogger enrichers enricher</PackageTags>
+    <PackageReleaseNotes>Please visit https://github.com/gcsizmadia/EgonsoftHU.Extensions.Logging.Serilog/releases to view the release notes.</PackageReleaseNotes>
+    <RepositoryUrl>https://github.com/gcsizmadia/EgonsoftHU.Extensions.Logging.Serilog.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <!--
+    <RepositoryBranch></RepositoryBranch>
+    <RepositoryCommit></RepositoryCommit>
+    -->
+    <PackageType>Dependency</PackageType>
+    <DevelopmentDependency>false</DevelopmentDependency>
+    <MinClientVersion>4.1.0</MinClientVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="EgonsoftHU.Extensions.Bcl" Version="1.0.3" />
+    <PackageReference Include="Serilog" Version="2.11.0" />
+  </ItemGroup>
+</Project>
