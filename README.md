@@ -6,6 +6,19 @@
 
 `PropertyBagEnricher` and C# extension methods for `Serilog.ILogger`.
 
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Summary](#summary)
+  - [SourceMember property](#sourcemember-property)
+  - [PropertyBagEnricher : Serilog.Core.ILogEventEnricher](#propertybagenricher---serilogcoreilogeventenricher)
+- [Releases](#releases)
+- [Examples](#examples)
+  - [ILogger.Here() - single use per method](#iloggerhere-----single-use-per-method)
+  - [ILogger.Here() - multiple use per method](#iloggerhere-----multiple-use-per-method)
+  - [PropertyBagEnricher](#propertybagenricher)
+  - [SourceMember property customization](#sourcemember-property-customization)
+
 ## Introduction
 
 The motivation behind this project is to add the source member name as a log event property.
@@ -21,7 +34,7 @@ This project helps you add a `SourceMember` property with the member name of the
 
 The `SourceMember` property name can be customized. See examples below.
 
-### PropertyBagEnricher
+### PropertyBagEnricher : Serilog.Core.ILogEventEnricher
 
 Each time you add a log event property (e.g. `logger.ForContext("SomeProperty", 42)`) a new logger instance will be created.
 
@@ -36,7 +49,7 @@ You can find the release notes [here](https://github.com/gcsizmadia/EgonsoftHU.E
 
 ## Examples
 
-### ILogger.Here() - single use
+### ILogger.Here() - single use per method
 
 ```csharp
 using EgonsoftHU.Extensions.Logging.Serilog;
@@ -70,7 +83,7 @@ The log events and their properties will be:
 {"SourceContext":"SomeCompany.Services.SomeService","SourceMember":"DoSomething","@l":"Information","@mt":"We are doing something here","@t":"2022-05-08T12:34:56.2222222Z"}
 ```
 
-### ILogger.Here() - multiple use
+### ILogger.Here() - multiple use per method
 
 To reduce creating logger instances you can store the logger instance created by calling the `Here()` method.
 
@@ -123,6 +136,29 @@ private void CalculateRectangleArea(int a, int b)
         .Information("Rectangle area: {RectangleArea}", a * b);
 }
 ```
+
+Of course, you can store the enricher in a variable if you want to add other properties later.
+
+```csharp
+private void CalculateRectangleArea(int a, int b)
+{
+    var enricher =
+        PropertyBagEnricher
+            .CreateForSourceMember() // this will add the SourceMember property.
+            .Add("SideA", a)
+            .Add("SideB", b);
+
+    ILogger logger = this.logger.ForContext(enricher);
+
+    logger.Information("Rectangle area: {RectangleArea}", a * b);
+    
+    enricher.Add("RectangleArea", a * b);
+    
+    // this log event will also contain the RectangleArea property.
+    logger.Verbose("Rectangle area calculated");
+}
+```
+
 
 ### SourceMember property customization
 
