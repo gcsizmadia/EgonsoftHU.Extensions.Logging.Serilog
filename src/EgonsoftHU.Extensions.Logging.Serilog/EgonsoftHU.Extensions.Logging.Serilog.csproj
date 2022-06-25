@@ -9,9 +9,17 @@
     <Authors>Gabor Csizmadia</Authors>
     <Owners>Egonsoft.HU</Owners>
     <Title>Egonsoft.HU Serilog Logging Extensions</Title>
-    <Description>PropertyBagEnricher and C# extension methods for Serilog.ILogger</Description>
-    <Summary>PropertyBagEnricher and C# extension methods for Serilog.ILogger</Summary>
-    <Copyright>Copyright © 2022 Gabor Csizmadia</Copyright>
+    <Description>Serilog.ILogger extensions:
+
+- Enrich log event with the name of the source member (method, property, etc.) in which the log event occurs.
+- PropertyBagEnricher to enrich the log event with multiple properties at once.</Description>
+    <Summary>Serilog.ILogger extensions:
+
+- Enrich log event with the name of the source member (method, property, etc.) in which the log event occurs.
+- PropertyBagEnricher to enrich the log event with multiple properties at once.</Summary>
+    <!--
+    <Copyright></Copyright>
+    -->
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/gcsizmadia/EgonsoftHU.Extensions.Logging.Serilog</PackageProjectUrl>
