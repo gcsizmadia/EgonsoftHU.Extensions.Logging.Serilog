@@ -25,7 +25,7 @@ namespace EgonsoftHU.Extensions.Logging.Serilog
         /// </remarks>
         public static PropertyBagEnricher Here(this PropertyBagEnricher enricher, [CallerMemberName] string sourceMember = null)
         {
-            enricher.ThrowIfNull(nameof(enricher));
+            enricher.ThrowIfNull();
 
             return enricher.Add(SourceMemberNamingConfiguration.Current.PropertyName, sourceMember);
         }

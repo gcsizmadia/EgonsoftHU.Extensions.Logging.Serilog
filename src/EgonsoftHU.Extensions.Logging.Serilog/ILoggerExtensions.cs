@@ -26,7 +26,7 @@ namespace EgonsoftHU.Extensions.Logging.Serilog
         /// </remarks>
         public static ILogger Here(this ILogger logger, [CallerMemberName] string sourceMember = null)
         {
-            logger.ThrowIfNull(nameof(logger));
+            logger.ThrowIfNull();
 
             return logger.ForContext(SourceMemberNamingConfiguration.Current.PropertyName, sourceMember);
         }

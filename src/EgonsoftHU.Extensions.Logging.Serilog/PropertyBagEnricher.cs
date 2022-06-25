@@ -58,7 +58,7 @@ namespace EgonsoftHU.Extensions.Logging.Serilog
         /// <returns>The enricher instance, for chaining Add operations together.</returns>
         public PropertyBagEnricher Add(string propertyName, object value, bool destructureObjects = false)
         {
-            propertyName.ThrowIfNullOrWhiteSpace(nameof(propertyName));
+            propertyName.ThrowIfNullOrWhiteSpace();
 
             if (!properties.ContainsKey(propertyName))
             {
@@ -74,8 +74,8 @@ namespace EgonsoftHU.Extensions.Logging.Serilog
         /// <inheritdoc/>
         public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
         {
-            logEvent.ThrowIfNull(nameof(logEvent));
-            propertyFactory.ThrowIfNull(nameof(propertyFactory));
+            logEvent.ThrowIfNull();
+            propertyFactory.ThrowIfNull();
 
             foreach (LogEventPropertyCreationInfo property in properties.Values)
             {

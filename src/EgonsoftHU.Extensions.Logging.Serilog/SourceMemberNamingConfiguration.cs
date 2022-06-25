@@ -40,7 +40,7 @@ namespace EgonsoftHU.Extensions.Logging.Serilog
             get => currentPropertyName;
             set
             {
-                value.ThrowIfNullOrWhiteSpace(nameof(value));
+                value.ThrowIfNullOrWhiteSpace();
                 currentPropertyName = value;
             }
         }
