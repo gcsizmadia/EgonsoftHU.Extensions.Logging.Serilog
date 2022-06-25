@@ -24,7 +24,7 @@ namespace EgonsoftHU.Extensions.Logging.Serilog
         /// The log event property name is <c>SourceMember</c> by default.<br/>
         /// It can be customized by setting the <c>SourceMemberNamingConfiguration.Current.PropertyName</c> property.
         /// </remarks>
-        public static ILogger Here(this ILogger logger, [CallerMemberName] string sourceMember = null)
+        public static ILogger Here(this ILogger logger, [CallerMemberName] string? sourceMember = null)
         {
             logger.ThrowIfNull();
 

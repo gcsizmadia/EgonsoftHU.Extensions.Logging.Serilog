@@ -42,7 +42,7 @@ namespace EgonsoftHU.Extensions.Logging.Serilog
         /// </summary>
         /// <param name="sourceMember">The caller member name. By default, it is provided by the <see cref="CallerMemberNameAttribute"/>.</param>
         /// <returns>A new instance of the <see cref="PropertyBagEnricher"/> class.</returns>
-        public static PropertyBagEnricher CreateForSourceMember([CallerMemberName] string sourceMember = null)
+        public static PropertyBagEnricher CreateForSourceMember([CallerMemberName] string? sourceMember = null)
         {
             return new PropertyBagEnricher().Here(sourceMember);
         }
@@ -56,7 +56,7 @@ namespace EgonsoftHU.Extensions.Logging.Serilog
         /// Whether to destructure the value. See https://github.com/serilog/serilog/wiki/Structured-Data
         /// </param>
         /// <returns>The enricher instance, for chaining Add operations together.</returns>
-        public PropertyBagEnricher Add(string propertyName, object value, bool destructureObjects = false)
+        public PropertyBagEnricher Add(string propertyName, object? value, bool destructureObjects = false)
         {
             propertyName.ThrowIfNullOrWhiteSpace();
 

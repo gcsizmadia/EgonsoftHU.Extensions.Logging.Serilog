@@ -23,7 +23,7 @@ namespace EgonsoftHU.Extensions.Logging.Serilog
         /// The log event property name is <c>SourceMember</c> by default.<br/>
         /// It can be customized by setting the <c>SourceMemberNamingConfiguration.Current.PropertyName</c> property.
         /// </remarks>
-        public static PropertyBagEnricher Here(this PropertyBagEnricher enricher, [CallerMemberName] string sourceMember = null)
+        public static PropertyBagEnricher Here(this PropertyBagEnricher enricher, [CallerMemberName] string? sourceMember = null)
         {
             enricher.ThrowIfNull();
 
