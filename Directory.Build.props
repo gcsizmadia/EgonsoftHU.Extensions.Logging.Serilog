@@ -1,0 +1,26 @@
+﻿<!--
+Copyright © 2022 Gabor Csizmadia
+This code is licensed under MIT license (see LICENSE for details)
+-->
+<Project>
+
+  <!-- Support for dotnet CLI commands -->
+  <PropertyGroup>
+    <SolutionDir>$(MSBuildThisFileDirectory)</SolutionDir>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <RootNamespace>EgonsoftHU.Extensions.Logging.Serilog</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Product>Egonsoft.HU Serilog Logging Extensions</Product>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <EgonsoftHUCommonPropsFile>$(MSBuildThisFileDirectory)..\..\build\EgonsoftHU.Common.props</EgonsoftHUCommonPropsFile>
+  </PropertyGroup>
+
+  <Import Project="$(EgonsoftHUCommonPropsFile)" Condition="Exists('$(EgonsoftHUCommonPropsFile)')" />
+
+</Project>

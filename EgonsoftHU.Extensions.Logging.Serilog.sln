@@ -6,19 +6,18 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00_Build", "00_Build", "{A87E996E-A3FC-48C2-9282-2566191DE29A}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
-		app.manifest = app.manifest
+		src\app.manifest = src\app.manifest
 		Directory.Build.props = Directory.Build.props
 		Directory.Build.targets = Directory.Build.targets
-		GlobalAssemblyInfo.cs = GlobalAssemblyInfo.cs
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00_Documents", "00_Documents", "{6C07F43F-A593-4A23-8375-97B6E9B375D2}"
 	ProjectSection(SolutionItems) = preProject
-		..\LICENSE = ..\LICENSE
-		..\README.md = ..\README.md
+		LICENSE = LICENSE
+		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EgonsoftHU.Extensions.Logging.Serilog", "EgonsoftHU.Extensions.Logging.Serilog\EgonsoftHU.Extensions.Logging.Serilog.csproj", "{3397D07E-1C89-4610-A9B4-35A89B121C10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EgonsoftHU.Extensions.Logging.Serilog", "src\EgonsoftHU.Extensions.Logging.Serilog\EgonsoftHU.Extensions.Logging.Serilog.csproj", "{3397D07E-1C89-4610-A9B4-35A89B121C10}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
