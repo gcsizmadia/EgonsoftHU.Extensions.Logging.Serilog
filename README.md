@@ -12,11 +12,13 @@
 - [Summary](#summary)
   - [SourceMember property](#sourcemember-property)
   - [PropertyBagEnricher : Serilog.Core.ILogEventEnricher](#propertybagenricher--serilogcoreilogeventenricher)
+  - [Exception.Data population](#exceptiondata-population)
 - [Releases](#releases)
 - [Examples](#examples)
   - [ILogger.Here() - single use per method](#iloggerhere---single-use-per-method)
   - [ILogger.Here() - multiple use per method](#iloggerhere---multiple-use-per-method)
   - [PropertyBagEnricher](#propertybagenricher)
+  - [Exception.Data - populate log event properties](#exceptiondata---populate-log-event-properties)
   - [SourceMember property customization](#sourcemember-property-customization)
 
 ## Introduction
@@ -39,6 +41,12 @@ The `SourceMember` property name can be customized. See examples below.
 Each time you add a log event property (e.g. `logger.ForContext("SomeProperty", 42)`) a new logger instance will be created.
 
 This enricher helps you reducing creating logger instances by adding multiple log event properties at once.
+
+### Exception.Data population
+
+`Exception.Data` dictionary can contain additional user-defined information about the exception.
+
+The log event properties the enricher contains can be populated into the `Exception.Data` dictionary using an extension method. See example below.
 
 ## Releases
 
@@ -159,6 +167,31 @@ private void CalculateRectangleArea(int a, int b)
 }
 ```
 
+### Exception.Data - populate log event properties
+
+Instead of manually providing the additional information:
+
+```csharp
+var ex = new ArithmeticException("Cannot calculate area.");
+ex.Data["SideA"] = a;
+ex.Data["SideB"] = b;
+
+throw ex;
+```
+
+you can use your existing `PropertyBagEnricher` instance:
+
+```csharp
+using EgonsoftHU.Extensions.Logging.Serilog;
+
+var enricher =
+    PropertyBagEnricher
+        .Create()
+        .Add("SideA", a)
+        .Add("SideB", b);
+
+throw new ArithmeticException("Cannot calculate area.").Populate(enricher);
+```
 
 ### SourceMember property customization
 
