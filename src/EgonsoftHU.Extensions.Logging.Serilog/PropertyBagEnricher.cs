@@ -17,14 +17,14 @@ namespace EgonsoftHU.Extensions.Logging.Serilog
     /// </summary>
     public partial class PropertyBagEnricher : ILogEventEnricher
     {
-        private readonly Dictionary<string, LogEventPropertyCreationInfo> properties;
+        internal readonly Dictionary<string, LogEventPropertyCreationInfo> Properties;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PropertyBagEnricher"/> class.
         /// </summary>
         public PropertyBagEnricher()
         {
-            properties = new Dictionary<string, LogEventPropertyCreationInfo>(StringComparer.InvariantCultureIgnoreCase);
+            Properties = new Dictionary<string, LogEventPropertyCreationInfo>(StringComparer.InvariantCultureIgnoreCase);
         }
 
         /// <summary>
@@ -60,9 +60,9 @@ namespace EgonsoftHU.Extensions.Logging.Serilog
         {
             propertyName.ThrowIfNullOrWhiteSpace();
 
-            if (!properties.ContainsKey(propertyName))
+            if (!Properties.ContainsKey(propertyName))
             {
-                properties.Add(
+                Properties.Add(
                     propertyName,
                     new LogEventPropertyCreationInfo(propertyName, value, destructureObjects)
                 );
@@ -77,7 +77,7 @@ namespace EgonsoftHU.Extensions.Logging.Serilog
             logEvent.ThrowIfNull();
             propertyFactory.ThrowIfNull();
 
-            foreach (LogEventPropertyCreationInfo property in properties.Values)
+            foreach (LogEventPropertyCreationInfo property in Properties.Values)
             {
                 logEvent.AddPropertyIfAbsent(
                     propertyFactory.CreateProperty(

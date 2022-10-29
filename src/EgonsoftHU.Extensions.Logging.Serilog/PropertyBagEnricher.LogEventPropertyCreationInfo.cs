@@ -5,6 +5,6 @@ namespace EgonsoftHU.Extensions.Logging.Serilog
 {
     partial class PropertyBagEnricher
     {
-        private sealed record LogEventPropertyCreationInfo(string PropertyName, object? Value, bool DestructureObjects);
+        internal sealed record LogEventPropertyCreationInfo(string PropertyName, object? Value, bool DestructureObjects);
     }
 }
