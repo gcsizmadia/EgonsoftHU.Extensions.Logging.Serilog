@@ -71,8 +71,7 @@ namespace EgonsoftHU.Extensions.Logging
             return this;
         }
 
-        /// <inheritdoc/>
-        public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
+        void ILogEventEnricher.Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
         {
             logEvent.ThrowIfNull();
             propertyFactory.ThrowIfNull();
