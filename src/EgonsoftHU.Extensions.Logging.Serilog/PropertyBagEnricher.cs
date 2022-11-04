@@ -55,7 +55,7 @@ namespace EgonsoftHU.Extensions.Logging
         /// <param name="destructureObjects">
         /// Whether to destructure the value. See https://github.com/serilog/serilog/wiki/Structured-Data
         /// </param>
-        /// <returns>The enricher instance, for chaining Add operations together.</returns>
+        /// <returns>The <see cref="PropertyBagEnricher"/> so that additional calls can be chained.</returns>
         public PropertyBagEnricher Add(string propertyName, object? value, bool destructureObjects = false)
         {
             propertyName.ThrowIfNullOrWhiteSpace();
