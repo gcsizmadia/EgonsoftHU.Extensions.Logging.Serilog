@@ -71,6 +71,21 @@ namespace EgonsoftHU.Extensions.Logging
             return this;
         }
 
+        /// <summary>
+        /// Adds the caller member name (i.e. where the log event occurs) as a property
+        /// that will be added to all log events enriched by this enricher.
+        /// </summary>
+        /// <param name="sourceMember">The caller member name. By default, it is provided by the <see cref="CallerMemberNameAttribute"/>.</param>
+        /// <returns>The <see cref="PropertyBagEnricher"/> so that additional calls can be chained.</returns>
+        /// <remarks>
+        /// The log event property name is <c>SourceMember</c> by default.<br/>
+        /// It can be customized by setting the <c>SourceMemberNamingConfiguration.Current.PropertyName</c> property.
+        /// </remarks>
+        public PropertyBagEnricher Here([CallerMemberName] string? sourceMember = null)
+        {
+            return Add(SourceMemberNamingConfiguration.Current.PropertyName, sourceMember);
+        }
+
         void ILogEventEnricher.Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
         {
             logEvent.ThrowIfNull();
