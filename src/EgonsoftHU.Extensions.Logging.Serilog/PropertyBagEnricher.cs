@@ -10,7 +10,7 @@ using EgonsoftHU.Extensions.Bcl;
 using Serilog.Core;
 using Serilog.Events;
 
-namespace EgonsoftHU.Extensions.Logging.Serilog
+namespace EgonsoftHU.Extensions.Logging
 {
     /// <summary>
     /// Applied during logging to add additional information to log events.

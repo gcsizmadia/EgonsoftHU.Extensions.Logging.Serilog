@@ -10,7 +10,7 @@ This code is licensed under MIT license (see LICENSE for details)
   </PropertyGroup>
 
   <PropertyGroup>
-    <RootNamespace>EgonsoftHU.Extensions.Logging.Serilog</RootNamespace>
+    <RootNamespace>EgonsoftHU.Extensions.Logging</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup>

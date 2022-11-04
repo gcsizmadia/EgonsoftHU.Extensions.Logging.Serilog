@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 
 using EgonsoftHU.Extensions.Bcl;
 
-namespace EgonsoftHU.Extensions.Logging.Serilog
+namespace EgonsoftHU.Extensions.Logging
 {
     /// <summary>
     /// Controls the log event property name for the source member provided by <see cref="CallerMemberNameAttribute"/>.

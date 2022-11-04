@@ -7,7 +7,7 @@ using EgonsoftHU.Extensions.Bcl;
 
 using Serilog;
 
-namespace EgonsoftHU.Extensions.Logging.Serilog
+namespace EgonsoftHU.Extensions.Logging
 {
     /// <summary>
     /// Contains the extension methods for the <see cref="ILogger"/> type.

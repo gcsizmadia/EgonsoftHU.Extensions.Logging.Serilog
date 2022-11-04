@@ -1,7 +1,7 @@
 ﻿// Copyright © 2022 Gabor Csizmadia
 // This code is licensed under MIT license (see LICENSE for details)
 
-namespace EgonsoftHU.Extensions.Logging.Serilog
+namespace EgonsoftHU.Extensions.Logging
 {
     partial class PropertyBagEnricher
     {

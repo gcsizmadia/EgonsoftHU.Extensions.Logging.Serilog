@@ -5,7 +5,7 @@ using System;
 
 using EgonsoftHU.Extensions.Bcl;
 
-namespace EgonsoftHU.Extensions.Logging.Serilog
+namespace EgonsoftHU.Extensions.Logging
 {
     /// <summary>
     /// This class contains extension methods that are available for types derived from the <see cref="Exception"/> type.
