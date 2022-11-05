@@ -21,6 +21,7 @@ namespace EgonsoftHU.Extensions.Logging
         /// <returns>
         /// The same exception instance on which this extension method was called and into which the log event properties have been populated.
         /// </returns>
+        /// <exception cref="ArgumentNullException">Either <paramref name="ex"/> or <paramref name="enricher"/> is <see langword="null"/>.</exception>
         public static TException Populate<TException>(this TException ex, PropertyBagEnricher enricher)
             where TException : Exception
         {

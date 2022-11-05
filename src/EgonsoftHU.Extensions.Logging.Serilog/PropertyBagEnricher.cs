@@ -56,6 +56,7 @@ namespace EgonsoftHU.Extensions.Logging
         /// Whether to destructure the value. See https://github.com/serilog/serilog/wiki/Structured-Data
         /// </param>
         /// <returns>The <see cref="PropertyBagEnricher"/> so that additional calls can be chained.</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="propertyName"/> is <see langword="null"/>, <see cref="String.Empty"/> or consists only of white-space characters.</exception>
         public PropertyBagEnricher Add(string propertyName, object? value, bool destructureObjects = false)
         {
             propertyName.ThrowIfNullOrWhiteSpace();
@@ -86,6 +87,10 @@ namespace EgonsoftHU.Extensions.Logging
             return Add(SourceMemberNamingConfiguration.Current.PropertyName, sourceMember);
         }
 
+        /// <inheritdoc/>
+        /// <exception cref="ArgumentNullException">
+        /// Either <paramref name="logEvent"/> or <paramref name="propertyFactory"/> is <see langword="null"/>.
+        /// </exception>
         void ILogEventEnricher.Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
         {
             logEvent.ThrowIfNull();
