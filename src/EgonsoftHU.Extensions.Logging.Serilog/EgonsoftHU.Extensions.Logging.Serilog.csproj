@@ -11,12 +11,14 @@
     <Title>Egonsoft.HU Serilog Logging Extensions</Title>
     <Description>Serilog.ILogger extensions:
 
-- Enrich log event with the name of the source member (method, property, etc.) in which the log event occurs.
-- PropertyBagEnricher to enrich the log event with multiple properties at once.</Description>
+- Enrich log events with the name of the source member (method, property, etc.) in which the log event occurs.
+- Enrich log events with multiple properties at once using PropertyBagEnricher.
+- Populate Exception.Data dictionary with the log event properties.</Description>
     <Summary>Serilog.ILogger extensions:
 
-- Enrich log event with the name of the source member (method, property, etc.) in which the log event occurs.
-- PropertyBagEnricher to enrich the log event with multiple properties at once.</Summary>
+- Enrich log events with the name of the source member (method, property, etc.) in which the log event occurs.
+- Enrich log events with multiple properties at once using PropertyBagEnricher.
+- Populate Exception.Data dictionary with the log event properties.</Summary>
     <!--
     <Copyright></Copyright>
     -->
