@@ -73,6 +73,28 @@ namespace EgonsoftHU.Extensions.Logging
         }
 
         /// <summary>
+        /// Adds the elements of the specified collection to the <see cref="PropertyBagEnricher"/>.
+        /// </summary>
+        /// <typeparam name="TValue">The type of the values in <paramref name="properties"/>.</typeparam>
+        /// <param name="properties">
+        /// The collection whose elements should be added to the <see cref="PropertyBagEnricher"/>.<br/>
+        /// The collection itself cannot be <see langword="null"/>, but it can contain key-value pairs that have a value of <see langword="null"/>.
+        /// </param>
+        /// <returns>The <see cref="PropertyBagEnricher"/> so that additional calls can be chained.</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="properties"/> is <see langword="null"/>.</exception>
+        public PropertyBagEnricher AddRange<TValue>(IEnumerable<KeyValuePair<string, TValue>> properties)
+        {
+            properties.ThrowIfNull();
+
+            foreach (KeyValuePair<string, TValue> property in properties)
+            {
+                Add(property.Key, property.Value);
+            }
+
+            return this;
+        }
+
+        /// <summary>
         /// Adds the caller member name (i.e. where the log event occurs) as a property
         /// that will be added to all log events enriched by this enricher.
         /// </summary>
