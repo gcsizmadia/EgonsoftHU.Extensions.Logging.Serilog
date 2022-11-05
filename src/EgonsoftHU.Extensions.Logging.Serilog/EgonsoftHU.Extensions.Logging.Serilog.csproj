@@ -30,6 +30,7 @@
     -->
     <PackageTags>$(PackageTags) extensions extension logging serilog ilogger enrichers enricher</PackageTags>
     <PackageReleaseNotes>Please visit https://github.com/gcsizmadia/EgonsoftHU.Extensions.Logging.Serilog/releases to view the release notes.</PackageReleaseNotes>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <RepositoryUrl>https://github.com/gcsizmadia/EgonsoftHU.Extensions.Logging.Serilog.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <!--
@@ -38,7 +39,7 @@
     -->
     <PackageType>Dependency</PackageType>
     <DevelopmentDependency>false</DevelopmentDependency>
-    <MinClientVersion>4.1.0</MinClientVersion>
+    <MinClientVersion>4.7.0</MinClientVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="EgonsoftHU.Extensions.Bcl" Version="2.0.0" />
