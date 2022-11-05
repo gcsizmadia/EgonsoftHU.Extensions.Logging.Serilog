@@ -28,8 +28,8 @@
     <!--
     <PackageIcon></PackageIcon>
     <PackageIconUrl></PackageIconUrl>
-    <PackageReadmeFile></PackageReadmeFile>
     -->
+    <PackageReadmeFile>PACKAGE_README.md</PackageReadmeFile>
     <PackageTags>$(PackageTags) extensions extension logging serilog ilogger enrichers enricher</PackageTags>
     <PackageReleaseNotes>Please visit https://github.com/gcsizmadia/EgonsoftHU.Extensions.Logging.Serilog/releases to view the release notes.</PackageReleaseNotes>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
@@ -43,6 +43,9 @@
     <DevelopmentDependency>false</DevelopmentDependency>
     <MinClientVersion>4.7.0</MinClientVersion>
   </PropertyGroup>
+  <ItemGroup>
+    <None Include="$(SolutionDir)PACKAGE_README.md" Pack="True" PackagePath="\" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="EgonsoftHU.Extensions.Bcl" Version="2.0.0" />
     <PackageReference Include="Serilog" Version="2.12.0" />

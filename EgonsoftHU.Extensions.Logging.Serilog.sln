@@ -14,6 +14,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00_Documents", "00_Documents", "{6C07F43F-A593-4A23-8375-97B6E9B375D2}"
 	ProjectSection(SolutionItems) = preProject
 		LICENSE = LICENSE
+		PACKAGE_README.md = PACKAGE_README.md
 		README.md = README.md
 	EndProjectSection
 EndProject
