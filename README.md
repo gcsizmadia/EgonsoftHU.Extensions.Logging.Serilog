@@ -14,6 +14,7 @@
   - [PropertyBagEnricher : Serilog.Core.ILogEventEnricher](#propertybagenricher--serilogcoreilogeventenricher)
   - [Exception.Data population](#exceptiondata-population)
 - [Releases](#releases)
+  - [Breaking change](#breaking-change)
 - [Examples](#examples)
   - [ILogger.Here() - single use per method](#iloggerhere---single-use-per-method)
   - [ILogger.Here() - multiple use per method](#iloggerhere---multiple-use-per-method)
@@ -46,7 +47,7 @@ This enricher helps you reducing creating logger instances by adding multiple lo
 
 `Exception.Data` dictionary can contain additional user-defined information about the exception.
 
-The log event properties the enricher contains can be populated into the `Exception.Data` dictionary using an extension method. See example below.
+The log event properties the enricher contains can be populated into the `Exception.Data` dictionary using the `Exception.Populate(PropertyBagEnricher)` extension method. See example below.
 
 ## Releases
 
@@ -55,12 +56,22 @@ You can download the package from [nuget.org](https://www.nuget.org/).
 
 You can find the release notes [here](https://github.com/gcsizmadia/EgonsoftHU.Extensions.Logging.Serilog/releases).
 
+### Breaking change
+
+The project namespace has changed to avoid namespace collision with `Serilog`.  
+**Please note:** The package id will remain unchanged.
+
+|Version|Namespace|
+|-|-|
+|`>= 1.0.0 && < 2.0.0`|`EgonsoftHU.Extensions.Logging.Serilog`|
+|`>= 2.0.0`|`EgonsoftHU.Extensions.Logging`|
+
 ## Examples
 
 ### ILogger.Here() - single use per method
 
 ```csharp
-using EgonsoftHU.Extensions.Logging.Serilog;
+using EgonsoftHU.Extensions.Logging;
 using Serilog;
 
 namespace SomeCompany.Services;
@@ -96,6 +107,9 @@ The log events and their properties will be:
 To reduce creating logger instances you can store the logger instance created by calling the `Here()` method.
 
 ```csharp
+using EgonsoftHU.Extensions.Logging;
+using Serilog;
+
 private void DoComplexThings()
 {
     ILogger logger = this.logger.Here();
@@ -115,6 +129,9 @@ private void DoComplexThings()
 To further reduce creating logger instances you can use the `PropertyBagEnricher` to add multiple log event properties at once.
 
 ```csharp
+using EgonsoftHU.Extensions.Logging;
+using Serilog;
+
 private void CalculateRectangleArea(int a, int b)
 {
     logger
@@ -132,6 +149,9 @@ private void CalculateRectangleArea(int a, int b)
 You can also combine `Here()` with `PropertyBagEnricher` by using the `CreateForSourceMember()` factory method:
 
 ```csharp
+using EgonsoftHU.Extensions.Logging;
+using Serilog;
+
 private void CalculateRectangleArea(int a, int b)
 {
     logger
@@ -145,9 +165,12 @@ private void CalculateRectangleArea(int a, int b)
 }
 ```
 
-Of course, you can store the enricher in a variable if you want to add other properties later.
+Of course, you can store the enricher in a variable if you want to add other properties later:
 
 ```csharp
+using EgonsoftHU.Extensions.Logging;
+using Serilog;
+
 private void CalculateRectangleArea(int a, int b)
 {
     var enricher =
@@ -167,6 +190,32 @@ private void CalculateRectangleArea(int a, int b)
 }
 ```
 
+You can also add multiple properties at once:
+
+```csharp
+using EgonsoftHU.Extensions.Logging;
+
+var propertiesFromOtherSource = new Dictionary<string, object?>()
+{
+    ["SideA"] = 5,
+    ["SideB"] = 10
+};
+
+var enricher =
+    PropertyBagEnricher
+        .CreateForSourceMember()
+        .AddRange(propertiesFromOtherSource);
+```
+
+Determines whether an instance of a specified type c can be assigned to a variable of the current type.
+
+**Please note:**
+- `AddRange<TValue>()` method expects a single parameter.
+- The parameter type is `IEnumerable<KeyValuePair<string, TValue>>`.
+- `TValue` generic type parameter has no generic constraint, hence both nullable and non-nullable types can be used as the type of the values. E.g.:
+  - `Dictionary<string, object>`
+  - `Dictionary<string, object?>`
+
 ### Exception.Data - populate log event properties
 
 Instead of manually providing the additional information:
@@ -182,7 +231,7 @@ throw ex;
 you can use your existing `PropertyBagEnricher` instance:
 
 ```csharp
-using EgonsoftHU.Extensions.Logging.Serilog;
+using EgonsoftHU.Extensions.Logging;
 
 var enricher =
     PropertyBagEnricher
@@ -190,6 +239,9 @@ var enricher =
         .Add("SideA", a)
         .Add("SideB", b);
 
+// Exception.Data dictionary will contain all the properties above.
+// The extension method returns the exception itself,
+// hence you can use it directly in a `throw` statement or expression.
 throw new ArithmeticException("Cannot calculate area.").Populate(enricher);
 ```
 
@@ -200,7 +252,7 @@ As the contextual logger uses the `SourceContext` property name for the type, it
 Should you need to customize the log event property name for whatever reason, use the `SourceMemberNamingConfiguration` as below:
 
 ```csharp
-using EgonsoftHU.Extensions.Logging.Serilog;
+using EgonsoftHU.Extensions.Logging;
 using Serilog;
 
 namespace ConsoleApp;
