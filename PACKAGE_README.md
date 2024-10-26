@@ -1,4 +1,4 @@
-# EgonsoftHU.Extensions.Logging.Serilog
+﻿# EgonsoftHU.Extensions.Logging.Serilog
 
 ## Summary
 
@@ -9,16 +9,6 @@
   - `PropertyBagEnricher.Here()` instance method.
 - Populate `Exception.Data` dictionary with the log event properties.
   - `Exception.Populate(PropertyBagEnricher)` extension method.
-
-## Breaking change
-
-The project namespace has changed to avoid namespace collision with `Serilog`.  
-**Please note:** The package id will remain unchanged.
-
-|Version|Namespace|
-|-|-|
-|`>= 1.0.0 && < 2.0.0`|`EgonsoftHU.Extensions.Logging.Serilog`|
-|`>= 2.0.0`|`EgonsoftHU.Extensions.Logging`|
 
 ## SourceMember property
 
