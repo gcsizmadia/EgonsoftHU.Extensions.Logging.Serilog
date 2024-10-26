@@ -1,4 +1,4 @@
-﻿// Copyright © 2022 Gabor Csizmadia
+﻿// Copyright © 2022-2024 Gabor Csizmadia
 // This code is licensed under MIT license (see LICENSE for details)
 
 using System;
@@ -33,7 +33,13 @@ namespace EgonsoftHU.Extensions.Logging
         /// <returns>A new instance of the <see cref="PropertyBagEnricher"/> class.</returns>
         public static PropertyBagEnricher Create()
         {
-            return new PropertyBagEnricher();
+            return
+#if LANGVERSION12_0_OR_GREATER
+                []
+#else
+                new()
+#endif
+                ;
         }
 
         /// <summary>

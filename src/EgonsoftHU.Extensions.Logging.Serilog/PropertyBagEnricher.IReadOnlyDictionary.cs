@@ -1,4 +1,4 @@
-﻿// Copyright © 2022 Gabor Csizmadia
+﻿// Copyright © 2022-2024 Gabor Csizmadia
 // This code is licensed under MIT license (see LICENSE for details)
 
 using System.Collections;
@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace EgonsoftHU.Extensions.Logging
 {
-    partial class PropertyBagEnricher : IReadOnlyDictionary<string, object?>
+    public partial class PropertyBagEnricher : IReadOnlyDictionary<string, object?>
     {
         bool IReadOnlyDictionary<string, object?>.ContainsKey(string key)
         {
