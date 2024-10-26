@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
-Copyright © 2022 Gabor Csizmadia
+Copyright © 2022-2024 Gabor Csizmadia
 This code is licensed under MIT license (see LICENSE for details)
 -->
 <assembly manifestVersion="1.0" xmlns="urn:schemas-microsoft-com:asm.v1">
   <assemblyIdentity
     type="win32"
     name="EgonsoftHU.Extensions.Logging.Serilog"
-    version="2.0.0.0"
+    version="3.0.0.0"
   />
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
     <application>
