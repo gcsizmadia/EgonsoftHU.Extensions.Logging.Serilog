@@ -3,11 +3,16 @@
     <TargetFrameworks>netstandard2.0;netstandard2.1;net462;net6.0;net8.0</TargetFrameworks>
   </PropertyGroup>
   <PropertyGroup>
+    <IsPackable>true</IsPackable>
     <PackageId>EgonsoftHU.Extensions.Logging.Serilog</PackageId>
     <VersionPrefix>2.0.0</VersionPrefix>
-    <VersionSuffix></VersionSuffix>
-    <Authors>Gabor Csizmadia</Authors>
-    <Owners>Egonsoft.HU</Owners>
+    <!--
+    <VersionSuffix>$([System.String]::Format('prerelease-{0:000}-{1:0000}', $([System.DateTime]::Now.DayOfYear), $([System.Math]::Floor($([System.DateTime]::Now.TimeOfDay.TotalMinutes)))))</VersionSuffix>
+    -->
+    <!--
+    <Authors></Authors>
+    <Owners></Owners>
+    -->
     <Title>Egonsoft.HU Serilog Logging Extensions</Title>
     <Description>Serilog.ILogger extensions:
 
@@ -21,9 +26,9 @@
 - Populate Exception.Data dictionary with the log event properties.</Summary>
     <!--
     <Copyright></Copyright>
+    <PackageRequireLicenseAcceptance></PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression></PackageLicenseExpression>
     -->
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/gcsizmadia/EgonsoftHU.Extensions.Logging.Serilog</PackageProjectUrl>
     <!--
     <PackageIcon></PackageIcon>
@@ -32,16 +37,18 @@
     <PackageReadmeFile>PACKAGE_README.md</PackageReadmeFile>
     <PackageTags>$(PackageTags) extensions extension logging serilog ilogger enrichers enricher</PackageTags>
     <PackageReleaseNotes>Please visit https://github.com/gcsizmadia/EgonsoftHU.Extensions.Logging.Serilog/releases to view the release notes.</PackageReleaseNotes>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <RepositoryUrl>https://github.com/gcsizmadia/EgonsoftHU.Extensions.Logging.Serilog.git</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
     <!--
+    <PublishRepositoryUrl></PublishRepositoryUrl>
+    -->
+    <RepositoryUrl>https://github.com/gcsizmadia/EgonsoftHU.Extensions.Logging.Serilog.git</RepositoryUrl>
+    <!--
+    <RepositoryType></RepositoryType>
     <RepositoryBranch></RepositoryBranch>
     <RepositoryCommit></RepositoryCommit>
+    <PackageType></PackageType>
+    <DevelopmentDependency></DevelopmentDependency>
+    <MinClientVersion></MinClientVersion>
     -->
-    <PackageType>Dependency</PackageType>
-    <DevelopmentDependency>false</DevelopmentDependency>
-    <MinClientVersion>4.7.0</MinClientVersion>
   </PropertyGroup>
   <ItemGroup>
     <None Include="$(SolutionDir)PACKAGE_README.md" Pack="True" PackagePath="\" />
